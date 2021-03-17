@@ -17,7 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => '/test', 'as' => 'test.'], function(){
-    Route::get('/index', 'TestController@index')->name('index');
-    Route::get('/show/{id?}', 'TestController@show')->name('show');
+Route::group(['prefix' => '/page', 'as' => 'page.'], function(){
+    Route::get('/index', 'PageController@index')->name('index');
+    Route::get('/show/{id}', 'PageController@show')->name('show');
+});
+
+Route::group(['prefix' => '/post', 'as' => 'post.'], function(){
+    Route::get('/index', 'PostController@index')->name('index');
+    Route::get('/show/{id}', 'PostController@show')->name('show');
 });
